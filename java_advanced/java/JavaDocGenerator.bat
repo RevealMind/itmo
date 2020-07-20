@@ -1,0 +1,1 @@
+javadoc -d out/doc -link https://docs.oracle.com/en/java/javase/11/docs/api/ -private ru/ifmo/rain/janchenkov/implementor/*.java info/kgeorgiy/java/advanced/implementor/*.java
