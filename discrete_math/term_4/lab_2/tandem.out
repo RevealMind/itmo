@@ -1,0 +1,44 @@
+start: markL
+accept: ac
+reject: rj
+blank: _
+markL 0 -> goR Z >
+markL 1 -> goR O >
+markL Z -> func Z <
+markL O -> func O <
+goR 0 -> goR 0 >
+goR 1 -> goR 1 >
+goR Z -> markR Z <
+goR O -> markR O <
+goR _ -> markR _ <
+markR 0 -> goL Z <
+markR 1 -> goL O <
+markR Z -> rj Z ^
+markR O -> rj O ^
+goL 0 -> goL 0 <
+goL 1 -> goL 1 <
+goL Z -> markL Z >
+goL O -> markL O >
+func 0 -> func 0 <
+func 1 -> func 1 <
+func Z -> check_zero 0 >
+func O -> check_one 1 >
+func _ -> ac _ ^
+check_zero 0 -> check_zero 0 >
+check_zero 1 -> check_zero 1 >
+check_zero Z -> check_zero Z >
+check_zero O -> check_zero O >
+check_zero _ -> is_zero _ <
+is_zero Z -> next _ <
+is_zero O -> rj _ ^
+check_one 0 -> check_one 0 >
+check_one 1 -> check_one 1 >
+check_one Z -> check_one Z >
+check_one O -> check_one O >
+check_one _ -> is_one _ <
+is_one Z -> rj _ ^
+is_one O -> next _ <
+next 0 -> func 0 <
+next 1 -> func 1 <
+next Z -> next Z <
+next O -> next O <

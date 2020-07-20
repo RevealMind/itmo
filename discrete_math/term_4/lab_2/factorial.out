@@ -1,0 +1,176 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 0 -> ac 1 ^
+s 1 -> set_separator 1 <
+
+set_separator _ -> find_copy $ >
+
+find_copy 0 -> find_copy 0 >
+find_copy 1 -> find_copy 1 >
+find_copy Z -> copy Z <
+find_copy O -> copy O <
+find_copy $ -> find_copy $ >
+find_copy | -> next | >
+find_copy _ -> copy _ <
+
+copy 0 -> paste_zero Z <
+copy 1 -> paste_one O <
+copy $ -> decrement $ <
+copy | -> go_left_decrement _ <
+
+paste_zero 0 -> paste_zero 0 < 
+paste_zero 1 -> paste_zero 1 <
+paste_zero $ -> paste_zero $ <
+paste_zero | -> paste_zero | <
+paste_zero _ -> find_copy 0 > 
+
+paste_one 0 -> paste_one 0 < 
+paste_one 1 -> paste_one 1 <
+paste_one $ -> paste_one $ <
+paste_one | -> paste_one | <
+paste_one _ -> find_copy 1 > 
+
+decrement 0 -> decrement 1 <
+decrement 1 -> go_left_clear_zero 0 <
+decrement _ -> clear_zero _ >
+
+go_left_clear_zero 0 -> go_left_clear_zero 0 <
+go_left_clear_zero 1 -> go_left_clear_zero 1 <
+go_left_clear_zero _ -> clear_zero _ >
+
+clear_zero 0 -> clear_zero _ >
+clear_zero 1 -> normalizeM 1 >
+clear_zero $ -> ans _ >
+
+normalizeM 0 -> normalizeM 0 > 
+normalizeM 1 -> normalizeM 1 > 
+normalizeM Z -> normalizeM 0 > 
+normalizeM O -> normalizeM 1 >
+normalizeM $ -> normalizeM * >
+normalizeM _ -> go_leftM _ <
+
+go_leftM 0 -> go_leftM 0 <
+go_leftM 1 -> go_leftM 1 <
+go_leftM * -> go_leftM * <
+go_leftM _ -> go_right_take_numM $ >
+
+go_right_take_numM 0 -> go_right_take_numM 0 >
+go_right_take_numM 1 -> go_right_take_numM 1 >
+go_right_take_numM z -> go_right_take_numM 0 >
+go_right_take_numM o -> go_right_take_numM 1 >
+go_right_take_numM Z -> go_right_take_numM Z >
+go_right_take_numM O -> go_right_take_numM O >
+go_right_take_numM * -> go_right_take_numM * >
+go_right_take_numM $ -> go_right_take_numM $ >
+go_right_take_numM _ -> take_numM _ <
+
+take_numM 0 -> go_left_zeroM _ <
+take_numM 1 -> go_left_oneM _ <
+take_numM * -> normalize_next _ <
+
+go_left_zeroM 0 -> go_left_zeroM 0 <
+go_left_zeroM 1 -> go_left_zeroM 1 <
+go_left_zeroM * -> go_left_zeroM * <
+go_left_zeroM $ -> zeroM $ <
+
+zeroM 0 -> go_right_take_numM Z >
+zeroM 1 -> go_right_take_numM O >
+zeroM Z -> zeroM Z <
+zeroM O -> zeroM O <
+zeroM _ -> go_right_take_numM Z >
+
+go_left_oneM 0 -> go_left_oneM 0 <
+go_left_oneM 1 -> go_left_oneM 1 <
+go_left_oneM * -> go_left_oneM * <
+go_left_oneM $ -> go_right_take_numA $ ^
+
+go_right_take_numA 0 -> go_right_take_numA 0 >
+go_right_take_numA 1 -> go_right_take_numA 1 >
+go_right_take_numA z -> go_right_take_numA z >
+go_right_take_numA o -> go_right_take_numA o >
+go_right_take_numA Z -> go_right_take_numA Z >
+go_right_take_numA O -> go_right_take_numA O >
+go_right_take_numA $ -> take_numA $ >
+
+take_numA 0 -> take_numA 0 >
+take_numA 1 -> take_numA 1 >
+take_numA z -> numA z <
+take_numA o -> numA o <
+take_numA * -> numA * <
+
+numA 0 -> go_left_zeroA z <
+numA 1 -> go_left_oneA o <
+numA $ -> mark_normalizeA $ <
+
+go_left_zeroA 0 -> go_left_zeroA 0 <
+go_left_zeroA 1 -> go_left_zeroA 1 <
+go_left_zeroA z -> go_left_zeroA z <
+go_left_zeroA o -> go_left_zeroA o <
+go_left_zeroA Z -> go_left_zeroA Z <
+go_left_zeroA O -> go_left_zeroA O <
+go_left_zeroA $ -> zeroA $ <
+
+zeroA 0 -> go_right_take_numA z >
+zeroA 1 -> go_right_take_numA o >
+zeroA z -> zeroA z <
+zeroA o -> zeroA o <
+zeroA Z -> zeroA Z <
+zeroA O -> zeroA O <
+zeroA _ -> go_right_take_numA z >
+
+go_left_oneA 0 -> go_left_oneA 0 <
+go_left_oneA 1 -> go_left_oneA 1 <
+go_left_oneA z -> go_left_oneA z <
+go_left_oneA o -> go_left_oneA o <
+go_left_oneA Z -> go_left_oneA Z <
+go_left_oneA O -> go_left_oneA O <
+go_left_oneA $ -> oneA $ <
+
+oneA 0 -> go_right_take_numA o >
+oneA 1 -> shift_oneA z <
+oneA z -> oneA z <
+oneA o -> oneA o <
+oneA Z -> oneA Z <
+oneA O -> oneA O <
+oneA _ -> go_right_take_numA o >
+
+shift_oneA 0 -> go_right_take_numA 1 >
+shift_oneA 1 -> shift_oneA 0 <
+shift_oneA _ -> go_right_take_numA 1 >
+
+mark_normalizeA z -> normalizeA Z <
+mark_normalizeA o -> normalizeA O <
+mark_normalizeA Z -> mark_normalizeA Z <
+mark_normalizeA O -> mark_normalizeA O <
+
+normalizeA 0 -> normalizeA 0 <
+normalizeA 1 -> normalizeA 1 <
+normalizeA z -> normalizeA 0 <
+normalizeA o -> normalizeA 1 <
+normalizeA _ -> go_right_take_numM _ >
+
+normalize_next 0 -> normalize_next 0 <
+normalize_next 1 -> normalize_next 1 <
+normalize_next Z -> normalize_next 0 <
+normalize_next O -> normalize_next 1 <
+normalize_next $ -> normalize_next | <
+normalize_next _ -> next $ >
+
+next 0 -> next 0 >
+next 1 -> next 1 >
+next | -> next | >
+next _ -> copy_erase _ <
+
+copy_erase 0 -> paste_zero _ <
+copy_erase 1 -> paste_one _ <
+copy_erase | -> go_left_decrement _ <
+
+go_left_decrement 0 -> go_left_decrement 0 <
+go_left_decrement 1 -> go_left_decrement 1 <
+go_left_decrement $ -> decrement $ <
+
+ans O -> ac 1 ^
+ans 1 -> ac 1 ^

@@ -1,0 +1,28 @@
+2
+
+S 0 _ -> S _ > 0 >
+S 1 _ -> S _ > 1 > 
+S a _ -> and _ ^ _ < 
+S o _ -> or _ ^ _ < 
+S _ _ -> ans _ ^ _ <
+
+and _ 0 -> and_zero _ ^ _ <
+and _ 1 -> and_one _ ^ _ <
+
+and_zero _ 0 -> S 0 ^ _ ^
+and_zero _ 1 -> S 0 ^ _ ^
+
+and_one _ 0 -> S 0 ^ _ ^
+and_one _ 1 -> S 1 ^ _ ^
+
+or _ 0 -> or_zero _ ^ _ <
+or _ 1 -> or_one _ ^ _ <
+
+or_zero _ 0 -> S 0 ^ _ ^
+or_zero _ 1 -> S 1 ^ _ ^
+
+or_one _ 0 -> S 1 ^ _ ^
+or_one _ 1 -> S 1 ^ _ ^
+
+ans _ 0 -> AC 0 ^ _ ^
+ans _ 1 -> AC 1 ^ _ ^

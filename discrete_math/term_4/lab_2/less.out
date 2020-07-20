@@ -1,0 +1,51 @@
+start: firstR
+accept: ac
+reject: rj
+blank: _
+firstR 0 -> firstR 0 >
+firstR 1 -> firstR 1 >
+firstR Z -> func Z <
+firstR O -> func O <
+firstR < -> func < <
+func 0 -> f_zero Z >
+func 1 -> f_one O >
+func _ -> secondL _ >
+f_zero Z -> f_zero Z >
+f_zero O -> f_zero O >
+f_zero < -> secondR_zero < >
+secondR_zero 0 -> secondR_zero 0 >
+secondR_zero 1 -> secondR_zero 1 >
+secondR_zero Z -> deduct_zero Z <
+secondR_zero O -> deduct_zero O <
+secondR_zero _ -> deduct_zero _ <
+deduct_zero 0 -> firstL Z <
+deduct_zero 1 -> firstL O <
+deduct_zero < -> rj _ ^
+f_one Z -> f_one Z >
+f_one O -> f_one O >
+f_one < -> secondR_one < >
+secondR_one 0 -> secondR_one 0 >
+secondR_one 1 -> secondR_one 1 >
+secondR_one Z -> deduct_one Z <
+secondR_one O -> deduct_one O <
+secondR_one _ -> deduct_one _ <
+deduct_one 0 -> shift_one O <
+deduct_one 1 -> firstL Z <
+deduct_one < -> rj _ ^
+shift_one 0 -> shift_one 1 <
+shift_one 1 -> firstL 0 <
+shift_one < -> rj _ ^
+firstL 0 -> firstL 0 <
+firstL 1 -> firstL 1 <
+firstL Z -> firstL Z <
+firstL O -> firstL O <
+firstL < -> firstL < <
+firstL _ -> firstR _ >
+secondL Z -> secondL Z >
+secondL O -> secondL O >
+secondL < -> check < >
+check 0 -> check 0 >
+check 1 -> ac _ ^
+check Z -> check Z >
+check O -> ac _ ^
+check _ -> rj _ ^

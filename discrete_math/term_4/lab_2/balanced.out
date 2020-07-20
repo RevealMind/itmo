@@ -1,0 +1,16 @@
+start: mark_firstR
+accept: ac
+reject: rj
+blank: _
+mark_firstR ( -> mark_firstR ( >
+mark_firstR ) -> mark_firstL M <
+mark_firstR M -> mark_firstR M >
+mark_firstR _ -> check _ <
+mark_firstL ( -> mark_firstR M >
+mark_firstL ) -> mark_firstL ) <
+mark_firstL M -> mark_firstL M <
+mark_firstL _ -> rj _ >
+check ( -> rj _ ^
+check ) -> rj _ ^
+check M -> check _ <
+check _ -> ac _ ^

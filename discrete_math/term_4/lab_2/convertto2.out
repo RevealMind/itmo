@@ -1,0 +1,37 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> set_separator 0 <
+s 1 -> set_separator 1 <
+s 2 -> set_separator 2 <
+set_separator _ -> new_number $ <
+new_number _ -> ternaryR 0 >
+ternaryR 0 -> ternaryR 0 >
+ternaryR 1 -> ternaryR 1 >
+ternaryR 2 -> ternaryR 2 >
+ternaryR $ -> ternaryR $ >
+ternaryR _ -> deduct_ternary _ <
+deduct_ternary 0 -> deduct_ternary 2 <
+deduct_ternary 1 -> binaryR 0 <
+deduct_ternary 2 -> binaryR 1 <
+deduct_ternary $ -> goR $ >
+binaryR 0 -> binaryR 0 <
+binaryR 1 -> binaryR 1 <
+binaryR 2 -> binaryR 2 <
+binaryR $ -> add_binary $ <
+add_binary 0 -> ternaryR 1 >
+add_binary 1 -> add_binary 0 <
+add_binary _ -> ternaryR 1 >
+goR 0 -> goR 0 >
+goR 1 -> goR 1 >
+goR 2 -> goR 2 >
+goR $ -> goR $ >
+goR _ -> clear _ <
+clear 0 -> clear _ <
+clear 1 -> clear _ <
+clear 2 -> clear _ <
+clear $ -> goL _ <
+goL 0 -> goL 0 <
+goL 1 -> goL 1 <
+goL _ -> ac _ >

@@ -1,0 +1,26 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> s 0 >
+s 1 -> s 1 >
+s Z -> s Z >
+s O -> s O >
+s _ -> find _ <
+find 0 -> set_zero Z >
+find 1 -> set_one O >
+find Z -> find Z <
+find O -> find O <
+find _ -> normalize _ >
+set_zero _ -> find Z <
+set_zero Z -> set_zero Z >
+set_zero O -> set_zero O >
+set_one _ -> find O <
+set_one Z -> set_one Z >
+set_one O -> set_one O >
+normalize Z -> normalize 0 >
+normalize O -> normalize 1 >
+normalize _ -> go_to_begin _ <
+go_to_begin 0 -> go_to_begin 0 <
+go_to_begin 1 -> go_to_begin 1 <
+go_to_begin _ -> ac _ >

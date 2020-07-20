@@ -1,0 +1,37 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> s 0 >
+s 1 -> s 1 >
+s Z -> s Z >
+s O -> s O >
+s + -> s + >
+s _ -> func _ <
+func 0 -> zero _ <
+func 1 -> one _ <
+func + -> normalize _ <
+zero 0 -> zero 0 <
+zero 1 -> zero 1 <
+zero + -> add_zero_to + <
+add_zero_to 0 -> s Z >
+add_zero_to 1 -> s O >
+add_zero_to Z -> add_zero_to Z <
+add_zero_to O -> add_zero_to O <
+add_zero_to _ -> s Z >
+one 0 -> one 0 <
+one 1 -> one 1 <
+one + -> add_one_to + <
+add_one_to 0 -> s O >
+add_one_to 1 -> shift_one Z <
+add_one_to Z -> add_one_to Z <
+add_one_to O -> add_one_to O <
+add_one_to _ -> s O >  
+shift_one 0 -> s 1 >
+shift_one 1 -> shift_one 0 <
+shift_one _ -> s 1 >
+normalize 0 -> normalize 0 <
+normalize 1 -> normalize 1 <
+normalize Z -> normalize 0 <
+normalize O -> normalize 1 <
+normalize _ -> ac _ >
