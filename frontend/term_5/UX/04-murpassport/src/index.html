@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>04-murpassport</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <header class="header header_fixed header_bottom-border">
+      <h1 class="header__name header__name-font">
+        <a href="./index.html"
+           class="header__href link_text-decoration">Мурпаспорт
+        </a>
+      </h1>
+    </header>
+    <div class="content-wrapper">
+      <aside class="sidebar">
+        <div class="sidebar__content">
+          <h3 class="sidebar__section-title">МЕНЮ</h3>
+          <nav class="sidebar__navigation">
+            <ul class="sidebar__navigation-links">
+              <li class="sidebar__navigation-link">
+                <a href="#data"
+                   class="sidebar_link link_text-decoration">Данные
+                </a>
+              </li>
+              <li class="sidebar__navigation-link">
+                <a href="#vaccinations"
+                   class="sidebar_link link_text-decoration">Прививки
+                </a>
+              </li>
+              <li class="sidebar__navigation-link">
+                <a href="#gallery"
+                   class="sidebar_link link_text-decoration">Галерея
+                </a>
+              </li>
+              <li class="sidebar__navigation-link">
+                <a href="#feedback"
+                   class="sidebar_link link_text-decoration">Обратная
+                  связь
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <main class="content">
+        <section class="content__section">
+          <h2 class="content__title content__title-font" id="data">Данные</h2>
+          <div class="content__information">
+            <div class="img-wrapper"><img src="static/01-photo.png" alt="" class="data-img"></div>
+            <div class="content__text-block">
+              <p class="content__text-line">Имя: Граф</p>
+              <p class="content__text-line">Фамилия: Великий</p>
+              <p class="content__text-line">Порода: Манул</p>
+              <p class="content__text-line">Дата рождения: 11.08.2008</p>
+            </div>
+          </div>
+        </section>
+        <section class="content__section">
+          <h2 class="content__title content__title-font" id="vaccinations">Прививки</h2>
+          <div class="content__information">
+            <ol class="content__list">
+              <li class="content__list-element">От чувства собственной важности</li>
+              <li class="content__list-element">От нелюбви к людям</li>
+              <li class="content__list-element">Для лучшей охоты за мышами</li>
+            </ol>
+          </div>
+        </section>
+        <section class="content__section">
+          <h2 class="content__title content__title-font" id="gallery">Галерея</h2>
+          <div class="content__information content__photos">
+            <div class="content__photo-wrapper">
+              <img src="static/02-photo.jpg" alt="Кот"
+                   class="content__photo">
+            </div>
+            <div class="content__photo-wrapper">
+              <img src="static/03-photo.png" alt="Кот"
+                   class="content__photo">
+            </div>
+            <div class="content__photo-wrapper">
+              <img src="static/04-photo.png" alt="Кот"
+                   class="content__photo">
+            </div>
+            <div class="content__photo-wrapper">
+              <img src="static/05-photo.png" alt="Кот"
+                   class="content__photo">
+            </div>
+          </div>
+        </section>
+        <section class="content__section">
+          <h2 class="content__title content__title-font" id="feedback">Обратная связь</h2>
+          <form class="content__information feedback-form">
+            <label for="comment" class="feedback-form__comment-label">
+              Сообщите, если хотите сотрудничать:
+            </label>
+            <textarea id="comment" class="feedback-form__text-area"
+                      placeholder="Сообщите информацию для сотрудничества"
+                      aria-required="true"></textarea>
+            <label class="feedback-form__email-label" for="email">Ваш email:</label>
+            <input class="feedback-form__email-input" type="email"
+                   placeholder="Ваш e-mail" id="email" aria-required="true">
+            <input class="feedback-form__submit" type="submit" value="ОТПРАВИТЬ">
+          </form>
+        </section>
+      </main>
+    </div>
+    <footer class="footer">
+      <address class="footer__address">
+        e-mail:"
+        <a href="mailto:support@murpassport.ru"
+           class="footer__link">mailto:support@murpassport.ru
+        </a>
+      </address>
+      <address class="footer__copyright">
+        © 2019 ООО"
+        <a class="footer__link" href="https://murpassport.com">
+          Мурпаспорт
+        </a>
+      </address>
+    </footer>
+    <script type="text/javascript" src="./simulation.js"></script>
+  </body>
+</html>

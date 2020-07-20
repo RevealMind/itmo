@@ -1,0 +1,79 @@
+.cloud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  width: 200px;
+  height: 60px;
+
+  border-radius: 200px;
+
+  background: #fff;
+
+  opacity: 0.95;
+}
+
+.cloud:before,
+.cloud:after {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+
+  width: 100px;
+  height: 80px;
+
+  border-radius: 100px;
+
+  background: #fff;
+
+  content: '';
+}
+
+.cloud:after {
+  top: -55px;
+  right: 15px;
+  left: auto;
+
+  width: 120px;
+  height: 120px;
+}
+
+.cloud:nth-child(1) {
+  top: 100px;
+
+  animation: cloud-move 16s linear infinite;
+
+  transform: rotateY(-180deg) scale(0.8);
+}
+
+.cloud:nth-child(2) {
+  top: 50px;
+
+  animation: cloud-move 22s linear infinite;
+
+  transform: scale(0.6);
+}
+
+.cloud:nth-child(3) {
+  top: 130px;
+
+  animation: cloud-move 26s linear infinite;
+  transform: rotateY(-180deg) scale(0.5);
+}
+
+.cloud:nth-child(4) {
+  top: 20px;
+
+  animation: cloud-move 35s linear infinite;
+  transform: scale(0.3);
+}
+
+@keyframes cloud-move {
+  from {
+    left: -40%;
+  }
+  to {
+    left: 100%;
+  }
+}

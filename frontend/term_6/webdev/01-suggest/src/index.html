@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Задача «Саджест»</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div class="form">
+      <div class="form__wrapper">
+        <form class="main-form">
+          <div class="main-form__wrapper">
+            <div class="main-form__content">
+              <div class="main-form__search-strings">
+                <div class="search-string">
+                  <div class="autocomplete">
+                    <div class="autocomplete__input-wrapper">
+                      <input type="text" autocomplete="off"
+                             class="autocomplete__input autocomplete__input_left-border"
+                             placeholder="Откуда" id="from" required>
+                      <label for="from" class="autocomplete__label">Откуда</label>
+                    </div>
+                  </div>
+                  <div class="main-form__swap">
+                    <svg class="main-form__swap-arrow" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 4V6L0 3L3 0V2H13V4H3Z"></path>
+                    </svg>
+                    <svg class="main-form__swap-arrow" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 4V6L0 3L3 0V2H13V4H3Z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="search-string">
+                  <div class="autocomplete">
+                    <div class="autocomplete__input-wrapper">
+                      <input type="text" autocomplete="off"
+                             class="autocomplete__input autocomplete__input_right-border"
+                             placeholder="Куда" id="to" required>
+                      <label for="to" class="autocomplete__label">Куда</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main-form__submit-wrapper">
+              <button type="submit" class="main-form__submit">
+                <span class="main-form__submit-text">Найти билеты</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
+

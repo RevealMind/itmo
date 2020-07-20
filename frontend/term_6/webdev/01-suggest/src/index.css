@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.form {
+  background-color: #2196f3;
+}
+
+.form__wrapper {
+  width: 100%;
+  max-width: 1070px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.main-form__wrapper {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+}
+
+.main-form__search-strings {
+  display: flex;
+}
+
+.autocomplete__input {
+  width: 100%;
+  height: 60px;
+  padding: 9px 18px;
+
+  border: 0;
+
+  font-size: 25px;
+}
+
+.autocomplete__input::placeholder {
+  transition: opacity 0.2s ease-out;
+
+  opacity: 1;
+}
+
+.autocomplete__input:focus {
+  box-shadow: 0 0 0 2px #f57c00;
+  outline: none;
+}
+
+.autocomplete__input:focus::placeholder {
+  transition: opacity 0.2s ease-out;
+
+  opacity: 0;
+}
+
+.autocomplete__input_left-border {
+  border-radius: 5px 0 0 5px;
+}
+
+.autocomplete__input_right-border {
+  border-radius: 0 5px 5px 0;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete__label {
+  position: absolute;
+  top: -16px;
+  left: 18px;
+
+  display: block;
+
+  transform: translateY(10px);
+
+  color: #fff;
+
+  font-size: 10px;
+  opacity: 0;
+  text-transform: uppercase;
+}
+
+.autocomplete__input:focus + .autocomplete__label,
+.autocomplete__label_active {
+  transition: transform 0.3s cubic-bezier(0, 0.6, 0, 1), opacity 0.3s linear;
+  transform: translateY(0);
+
+  opacity: 1;
+}
+
+.search-string {
+  position: relative;
+
+  flex-grow: 1;
+
+  padding-left: 3px;
+}
+
+.main-form__content {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.main-form__swap {
+  position: absolute;
+
+  top: 17px;
+  right: -14px;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 26px;
+  height: 26px;
+
+  border-radius: 50%;
+
+  transition: transform 0.2s ease-in-out;
+
+  background: white;
+  box-shadow: 0 0 2px 1px grey;
+}
+
+.main-form__swap:hover {
+  transform: scale(1.15);
+
+  box-shadow: 0 0 2px 1px #f57c00;
+}
+
+.main-form__swap-arrow {
+  width: 13px;
+  height: 6px;
+
+  fill: #2196f3;
+}
+
+.main-form__swap-arrow:first-child {
+  margin-bottom: 2px;
+
+  transform: rotate(0.5turn);
+}
+
+.main-form__submit-wrapper {
+  display: flex;
+
+  width: 100%;
+}
+
+.main-form__submit {
+  width: 100%;
+  max-width: 270px;
+  min-height: 60px;
+  margin: 0 auto;
+  padding: 15px;
+
+  border: 0;
+  border-radius: 10px;
+
+  transition: background-color 0.3s;
+
+  background-color: #f57c00;
+  box-shadow: 0 0 2px 2px gray;
+  outline: none;
+}
+
+.main-form__submit:hover {
+  background-color: #ffa353;
+}
+
+.main-form__submit:focus {
+  background-color: #ffa353;
+}
+
+.main-form__submit-text {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.autocomplete-items {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 99;
+
+  border: 1px solid #d4d4d4;
+  border-top: none;
+  border-bottom: none;
+}
+
+.autocomplete-items__item {
+  padding: 10px;
+
+  border-bottom: 1px solid #d4d4d4;
+
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items__item:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-items__item_active {
+  background-color: DodgerBlue;
+  color: #ffffff;
+}
+
+.autocomplete-items__airport:before {
+  margin-right: 5px;
+
+  content: '\2708';
+}
+
+.autocomplete-items__airport_in-city:before {
+  margin-left: 10px;
+}
+
+.autocomplete-items__item-code {
+  position: absolute;
+
+  right: 13px;
+
+  color: #90adcb;
+}

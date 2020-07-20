@@ -1,0 +1,90 @@
+.moon {
+  position: absolute;
+  bottom: -25%;
+  left: calc(50% - 49px);
+  z-index: 1;
+
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+
+  animation: moon-move 24s linear infinite;
+  animation-delay: 1s;
+
+  background: #e2e2e2;
+  box-shadow: 0 0 25px 0 #f1f1f1, inset -6px 6px 9px #a9a9a9;
+
+  opacity: 1;
+}
+
+.moon__crater {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background-color: #c5c5c5;
+  box-shadow: inset 3px -3px 1px #696969;
+}
+
+.moon__crater:nth-child(1) {
+  top: 31%;
+  left: 16%;
+
+  width: 24%;
+  height: 24%;
+}
+
+.moon__crater:nth-child(2) {
+  top: 22%;
+  right: 26%;
+
+  width: 17%;
+  height: 17%;
+}
+
+.moon__crater:nth-child(3) {
+  bottom: 13%;
+  left: 42%;
+
+  width: 17%;
+  height: 17%;
+}
+
+@keyframes moon-move {
+  0% {
+    transform: rotate(0turn) translateX(-510px) rotate(1turn) scale(1.8);
+  }
+  40%,
+  60% {
+    transform: rotate(0.25turn) translateX(-530px) rotate(0.75turn) scale(0.8);
+  }
+  100% {
+    transform: rotate(0.5turn) translateX(-510px) rotate(0.5turn) scale(1.8);
+  }
+}
+
+.canvas {
+  animation: sky 24s infinite;
+}
+
+@keyframes sky {
+  12%,
+  88% {
+    background: #013a6f;
+    box-shadow: inset 0 -700px 300px -400px #000c18;
+  }
+  30%,
+  70% {
+    background: #163655;
+    box-shadow: inset 0 -700px 300px -200px #040b12;
+  }
+  45%,
+  55% {
+    background: #002649;
+    box-shadow: inset 0 -700px 300px -50px #000810;
+  }
+  50% {
+    box-shadow: inset 0 -700px 300px 0 #000810;
+  }
+}

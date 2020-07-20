@@ -1,0 +1,432 @@
+@media screen and (min-width: 375px) and (max-width: 730px) {
+  .cat__card {
+    margin: 10px 18px;
+  }
+
+  address {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cat__full-description {
+    display: none;
+  }
+
+  .contact__info {
+    margin: 0;
+  }
+
+  .contact__href-info {
+    margin: 0;
+  }
+
+  .copyright {
+    margin-top: 22px;
+  }
+
+  .contact__href-info:before {
+    content: '\2709';
+  }
+
+  .cat__name {
+    padding-left: 18px;
+  }
+
+  .cat__img {
+    width: 100%;
+  }
+
+  .cat__short-description {
+    padding: 0 18px;
+  }
+}
+
+@media screen and (min-width: 730px) and (max-width: 1200px) {
+  .cat__card {
+    flex-basis: 31.5%;
+
+    margin: 10px auto;
+  }
+
+  .cat__full-description {
+    display: none;
+  }
+
+  address {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .contacts {
+    display: grid;
+
+    grid-row: 1 / 4;
+
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .contact__info {
+    margin: 0;
+  }
+
+  .contact__href-info {
+    margin: 0;
+  }
+
+  .copyright {
+    grid-column: 2;
+    grid-row: 3;
+
+    text-align: right;
+  }
+
+  .contact__href-info:before {
+    content: '\2709';
+  }
+
+  .cat__name {
+    padding-left: 18px;
+  }
+
+  .cat__img {
+    width: 100%;
+  }
+
+  .cat__short-description {
+    padding: 0 18px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  main {
+    display: grid;
+    grid-template-columns: 80% auto;
+    grid-template-rows: 1fr;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+
+    margin: 0 10px;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    grid-column: 1;
+  }
+
+  .cat__card {
+    display: grid;
+
+    flex-basis: 47.5%;
+
+    grid-template:
+      'name name' 30px
+      'pic short' auto
+      'full full' 1fr
+      / 320px 1fr;
+
+    margin-bottom: 15px;
+  }
+
+  .cat__img {
+    grid-area: pic;
+
+    width: 300px;
+    height: 200px;
+
+    padding: 10px;
+  }
+
+  .cat__name {
+    grid-area: name;
+
+    margin: 0;
+    padding: 0 10px;
+
+    text-align: center;
+  }
+
+  .cat__full-description p {
+    margin: 0;
+  }
+
+  .cat__short-description {
+    grid-area: short;
+
+    padding: 10px;
+  }
+
+  .cat__full-description {
+    grid-area: full;
+
+    padding: 10px;
+
+    border-top: 1px solid #dadada;
+  }
+
+  .age-sidebar-title {
+    margin-top: 0;
+
+    font-weight: 500;
+  }
+
+  .bread-sidebar-title {
+    font-weight: 500;
+  }
+
+  .breed-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .breed-form label {
+    margin: 5px 0;
+
+    padding: 10px;
+
+    border: 1px solid #6b6b6b;
+    border-radius: 5px;
+
+    background: #f6faff;
+    font-size: 20px;
+
+    text-align: center;
+  }
+
+  .breed-form label:hover {
+    transition: 0.7s;
+
+    background: #80ff88;
+  }
+
+  address {
+    display: grid;
+    align-items: baseline;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contacts {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .contacts p {
+    margin: 5px;
+  }
+
+  .copyright {
+    margin: 5px;
+
+    text-align: right;
+  }
+  .contact__info:before {
+    padding-right: 3px;
+
+    content: '\2709';
+  }
+
+  .input-all:checked ~ .sidebar label[for='all'] {
+    background: #80ff88;
+  }
+
+  .input-british:checked ~ .sidebar label[for='british'] {
+    background: #80ff88;
+  }
+
+  .input-american:checked ~ .sidebar label[for='american'] {
+    background: #80ff88;
+  }
+
+  .input-siamese:checked ~ .sidebar label[for='siamese'] {
+    background: #80ff88;
+  }
+
+  .input-scottish:checked ~ .sidebar label[for='scottish'] {
+    background: #80ff88;
+  }
+
+  .input-persian:checked ~ .sidebar label[for='persian'] {
+    background: #80ff88;
+  }
+
+  .input-ragamuffin:checked ~ .sidebar label[for='ragamuffin'] {
+    background: #80ff88;
+  }
+
+  .input-manul:checked ~ .sidebar label[for='manul'] {
+    background: #80ff88;
+  }
+
+  .input-none:checked ~ .sidebar label[for='none'] {
+    background: #80ff88;
+  }
+
+  .input-all:checked ~ .cards .cat__card:not(*) {
+    display: none;
+  }
+
+  .input-british:checked ~ .cards .cat__card:not(.breed-british) {
+    display: none;
+  }
+
+  .input-none:checked ~ .cards .cat__card:not(.breed-none) {
+    display: none;
+  }
+
+  .input-american:checked ~ .cards .cat__card:not(.breed-american) {
+    display: none;
+  }
+
+  .input-siamese:checked ~ .cards .cat__card:not(.breed-siamese) {
+    display: none;
+  }
+
+  .input-scottish:checked ~ .cards .cat__card:not(.breed-scottish) {
+    display: none;
+  }
+
+  .input-manul:checked ~ .cards .cat__card:not(.breed-manul) {
+    display: none;
+  }
+
+  .input-persian:checked ~ .cards .cat__card:not(.breed-persian) {
+    display: none;
+  }
+
+  .input-ragamuffin:checked ~ .cards .cat__card:not(.breed-ragamuffin) {
+    display: none;
+  }
+
+  input[type='range'] {
+    overflow: hidden;
+
+    width: 90%;
+    height: 20px;
+
+    -webkit-appearance: none;
+
+    background: linear-gradient(to right, #8d8d9a 0%, #9a9090 100%) no-repeat center;
+
+    background-size: auto 10px;
+
+    outline: none;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    position: relative;
+    z-index: 3;
+
+    width: 20px;
+    height: 20px;
+
+    -webkit-appearance: none;
+
+    background: #808080;
+
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 6px 0;
+
+  border-bottom: 2px solid #dadada;
+
+  background: #fff;
+  text-align: center;
+}
+
+.href__header {
+  margin: auto;
+
+  color: #191919;
+  font: 32px 'PT Sans Narrow', sans-serif;
+  text-decoration: none;
+}
+
+.href__header:first-letter {
+  color: #ff0c0c;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cat__card {
+  border: 1px solid #dadada;
+  border-radius: 5px;
+}
+
+.cat__img {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.href__cat__name {
+  color: #303030;
+  text-decoration: none;
+}
+
+.cat__info {
+  margin: 0;
+
+  color: #6b6b6b;
+}
+
+.cat__status {
+  margin-top: 1rem;
+
+  color: #6b6b6b;
+}
+
+aside {
+  display: none;
+}
+
+.href__contacts {
+  color: #4c4cd8;
+  text-decoration: none;
+}
+
+.href__copyright {
+  color: #4c4cd8;
+  text-decoration: none;
+}
+
+.cat__card:hover {
+  box-shadow: 0 0 5px #808080;
+}
+
+.cat__name > a:hover {
+  color: #f00;
+}
+
+footer {
+  margin-top: 34px;
+
+  border-top: 1px solid #dadada;
+
+  font: 14px Arial, serif;
+}
+
+address {
+  padding: 10px 22px;
+}
+
+input[name='breed'] {
+  display: none;
+}

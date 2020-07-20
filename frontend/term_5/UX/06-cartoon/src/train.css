@@ -1,0 +1,60 @@
+.train {
+  animation: move-train 15s linear infinite;
+}
+
+@keyframes move-train {
+  from {
+    right: -50%;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+.wheel {
+  animation: wheel-rotate 3s linear infinite;
+}
+
+.wheel-3 {
+  animation: wheel-rotate 4.1s linear infinite;
+}
+
+@keyframes wheel-rotate {
+  to {
+    transform: rotate(-1turn);
+  }
+}
+
+.wheel-joint {
+  animation: wheel-joint-rotate 3s linear infinite;
+}
+
+@keyframes wheel-joint-rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.smoke {
+  animation: move-smoke 2s linear infinite;
+}
+
+.smoke-2 {
+  animation-delay: 0.5s;
+}
+
+.smoke-3 {
+  animation-delay: 1s;
+}
+
+.smoke-4 {
+  animation-delay: 1.5s;
+}
+
+@keyframes move-smoke {
+  to {
+    transform: translate(75px, -75px);
+
+    opacity: 0;
+  }
+}
