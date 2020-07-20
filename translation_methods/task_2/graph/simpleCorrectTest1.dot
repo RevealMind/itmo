@@ -1,0 +1,25 @@
+digraph Tree {
+0 [label="S"];
+1 [label="A"];
+2 [label="B"];
+3 [label="D"];
+4 [label="a", color=red];
+3 -> {4};
+2 -> {3};
+5 [label="A'"];
+6 [label="and", color=red];
+7 [label="B"];
+8 [label="D"];
+9 [label="b", color=red];
+8 -> {9};
+7 -> {8};
+10 [label="A'"];
+11 [label="ε", color=red];
+10 -> {11};
+5 -> {6,7,10};
+1 -> {2,5};
+12 [label="S'"];
+13 [label="ε", color=red];
+12 -> {13};
+0 -> {1,12};
+}

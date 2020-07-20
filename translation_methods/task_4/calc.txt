@@ -1,0 +1,19 @@
+ADD: "\\+";
+SUB: "-";
+MUL: "\\*";
+LP: "\\(";
+RP: "\\)";
+POW: "\\^";
+NUM: "[0-9]+";
+
+start [Integer] : sum         {$0};
+sum [Integer]   : mul           {$0};
+sum [Integer]   : sum ADD mul   {$0 + $2};
+sum [Integer]   : sum SUB mul   {$0 - $2};
+mul [Integer]   : mul MUL pow   {$0 * $2};
+mul [Integer]   : pow           {$0};
+pow [Integer]   : unary POW pow {(int)Math.pow($0,$2)};
+pow [Integer]   : unary         {$0};
+unary [Integer] : SUB unary     {-$1};
+unary [Integer] : NUM {Integer.parseInt($0)};
+unary [Integer] : LP sum RP {$1};

@@ -1,0 +1,17 @@
+BINARY_OP=1
+BOOL_CONST=2
+BINARY_BOOL_OP=3
+NOT=4
+CMP_OP=5
+ASGN=6
+IF=7
+ELSEIF=8
+PRINT=9
+NUM=10
+VAR=11
+WS=12
+'!'=4
+'='=6
+'if'=7
+'elseif'=8
+'print'=9

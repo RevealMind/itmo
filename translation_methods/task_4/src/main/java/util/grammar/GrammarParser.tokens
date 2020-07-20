@@ -1,0 +1,13 @@
+T__0=1
+T__1=2
+T__2=3
+TERM_NAME=4
+NONTERM_NAME=5
+STRING=6
+CODE=7
+TYPE=8
+REGEX=9
+WS=10
+':'=1
+';'=2
+'start'=3

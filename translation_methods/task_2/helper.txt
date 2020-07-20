@@ -1,0 +1,87 @@
+// Grammar
+
+1. not
+2. and
+3. xor
+4. or
+
+S -> S or A | S xor A
+A -> A and B
+B -> not B
+B -> D
+D -> var
+D -> (S)
+
+
+S  -> A S'
+S' -> xor A S'
+S' -> or A S'
+S' -> eps
+A  -> B A'
+A' -> and B A'
+A' -> eps
+B  -> not B
+B  -> D
+D  -> var
+D  -> (S)
+
+First
+S	not, var, (
+S'	xor, or, ε
+A	not, var, (
+A'	and, ε
+B	not, var, (
+D	var, (
+
+Follow
+S	-|, )
+S'	-|, )
+A	xor, or, -|, )
+A'	xor, or, -|, )
+B	and, xor, or, -|, )
+D	and, xor, or, -|, )
+
+S -> S or A
+S -> A
+A -> A xor B
+A -> B
+B -> B and C
+B -> C
+C -> not C
+C -> D
+D -> var
+D -> (S)
+
+S  -> A S'
+S' -> eps
+S' -> or A S'
+A  -> B A'
+A' -> eps
+A' -> xor B A'
+B  -> C B'
+B' -> eps
+B' -> and C B'
+C  -> not C
+C  -> D
+D  -> var
+D  -> (S)
+
+FIRST
+S	not, var, (
+S'	ε, or
+A	not, var, (
+A'	ε, xor
+B	not, var, (
+B'	ε, and
+C	not, var, (
+D	var, (
+
+FOLLOW
+S	-|, )
+S'	-|, )
+A	or, -|, )
+A'	or, -|, )
+B	xor, or, -|, )
+B'	xor, or, -|, )
+C	and, xor, or, -|, )
+D	and, xor, or, -|, )

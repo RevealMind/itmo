@@ -1,0 +1,18 @@
+AND: "and";
+XOR: "xor";
+NOT: "not";
+LP: "\\(";
+RP: "\\)";
+OR: "or";
+VAR: "[a-z]";
+
+start [Logic] : logic         { $0 };
+logic [Logic] : logic OR and  { new Or($0, $2) };
+logic [Logic] : logic XOR and { new Xor($0, $2) };
+logic [Logic] : and           { $0 };
+and   [Logic] : and AND var   { new And($0, $2) };
+and   [Logic] : var           { $0 };
+var   [Logic] : VAR           { new Var($0) };
+var   [Logic] : NOT var       { new Not($1) };
+var   [Logic] : LP logic RP   { $1 };
+
